@@ -43,6 +43,11 @@ const modelInput = {
 }
 
 
+<<<<<<< HEAD
+=======
+const attacks = {6:"Normal", 7:"Reconnaissance",1:"Backdoor", 2:"Dos",3:"Exploits",0:"Analysis", 4:"Fuzzers", 9:"Worms", 8:"SHellcode", 5:"Generic"}
+
+>>>>>>> d3bc095 (main init)
 // Handle incoming packets
 pcapSession.on('packet', (rawPacket) => {
     try {
@@ -148,9 +153,18 @@ pcapSession.on('packet', (rawPacket) => {
 
             // send a POST request to the server with modelInput as json
 
+<<<<<<< HEAD
             // if(modelInput.dload >= 100000)
             axios.post('http://127.0.0.1:5000/predict', {input: Object.values(modelInput)}).then((res)=>{
                 console.log(res.data)
+=======
+            // if(modelInput.dload >= 5200000)
+            axios.post('http://127.0.0.1:5000/predict', {input: Object.values(modelInput)}).then((res)=>{
+                console.log("The result is:",res.data)
+                
+                console.log("THe type of attack is: ",attacks[Math.ceil(res.data.predictions[0][0])])
+
+>>>>>>> d3bc095 (main init)
             })
 
 
